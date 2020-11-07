@@ -10,7 +10,7 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
-            options: { minimze: false },
+            options: { minimze: true },
           },
         ],
       },
@@ -31,6 +31,9 @@ module.exports = {
         test: /\.(svg|eot|ttf|woff|woff2)?$/
       }
     ],
+  },
+  optimization: {
+    minimize: true
   },
   plugins: [
     new HtmlWebpackPlugin({
