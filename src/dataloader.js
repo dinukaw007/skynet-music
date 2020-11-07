@@ -19,13 +19,12 @@ let dataset = [
     artist: 'Maroon 5',
     url: 'https://siasky.net/AADUfQjT4a7rRSsX_aGfMHq59EZJxNIavJdLp1Fn5az7Ag',
     image: './images/skynet-music.png'
-
-
   }
 ]
 
-function displayMusic() {
-  $.each(dataset, (index, songItem) => {
+function addItemsToDisplayMusic(items, inc) {
+  $.each(items, (index, songItem) => {
+    let incIdVal = index+inc;
     $("#songlist").append(`<div class="col-md-4">
         <div class="card mb-4 shadow-sm">
           <img
@@ -42,25 +41,25 @@ function displayMusic() {
             </h5>
             <p class="mb-0">${songItem.title}</p>
 
-            <audio id=${"music" + index} preload="true">
+            <audio id=${"music" + incIdVal} preload="true">
               <source
                 src=${songItem.url}
               />
             </audio>
             <div id="audioplayer">
-              <i id=${"pButton" + index} class="fa fa-play pButton"></i>
-              <div class="timeline" id=${"timeline" + index}>
-                <div class="playhead" id=${"playhead" + index}></div>
+              <i id=${"pButton" + incIdVal} class="fa fa-play pButton"></i>
+              <div class="timeline" id=${"timeline" + incIdVal}>
+                <div class="playhead" id=${"playhead" + incIdVal}></div>
               </div>
             </div>
           </div>
         </div>
       </div>`);
-    var music = document.getElementById(`${"music" + index}`); // id for audio element
+    var music = document.getElementById(`${"music" + incIdVal}`); // id for audio element
     var duration = music.duration; // Duration of audio clip, calculated here for embedding purposes
-    var pButton = document.getElementById(`${"pButton" + index}`); // play button
-    var playhead = document.getElementById(`${"playhead" + index}`); // playhead
-    var timeline = document.getElementById(`${"timeline" + index}`); // timeline
+    var pButton = document.getElementById(`${"pButton" + incIdVal}`); // play button
+    var playhead = document.getElementById(`${"playhead" + incIdVal}`); // playhead
+    var timeline = document.getElementById(`${"timeline" + incIdVal}`); // timeline
     // timeline width adjusted for playhead
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
@@ -163,6 +162,20 @@ function displayMusic() {
 
   });
 
+};
 
+export function displayMusic() {
+  const items = getItems();
+  addItemsToDisplayMusic(items,0);
 }
-displayMusic()
+
+
+export  function getItems() {
+  return dataset;
+}
+
+export  function setItems(item) {
+  dataset.push(...item);
+  addItemsToDisplayMusic(item,dataset.length+1);
+  console.log(dataset.length);
+}
