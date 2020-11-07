@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap-icons": "^1.1.0"
+    "bootstrap-icons": "^1.1.0",
+    "skynet-js": "^2.4.0"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
