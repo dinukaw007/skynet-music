@@ -1,6 +1,6 @@
-import _ from 'lodash';
-// import bar from './bar';
 import bar from './musci-player';
+import refernece from './refernece';
+
 
 $( document ).ready(function() {
 	$(".progress").addClass('invisible');
