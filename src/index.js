@@ -1,5 +1,5 @@
-import bar from './musci-player';
 import refernece from './refernece';
+import dataloader from './dataloader';
 
 
 $( document ).ready(function() {
