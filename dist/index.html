@@ -110,100 +110,7 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img
-                  src="skynet-music.png"
-                  class="bd-placeholder-img card-img-top"
-                  alt="Girl in a jacket"
-                  width="100%"
-                />
-                <div class="card-body text-center">
-                  <h5 class="h5 font-weight-bold">
-                    <a 
-                      >Tones And I</a
-                    >
-                  </h5>
-                  <p class="mb-0">Dance Monkey</p>
-
-                  <audio id="music1" preload="true">
-                    <source
-                      src="https://siasky.net/_BFEVGCEhKJ9Zkh8cVFB0KLn1d8Nrc8vhEkunOC8sLWSJg"
-                    />
-                  </audio>
-                  <div id="audioplayer">
-                    <i id="pButton1" class="fa fa-play pButton"></i>
-                    <div class="timeline" id="timeline1">
-                      <div class="playhead" id="playhead1"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img
-                  src="skynet-music.png"
-                  class="bd-placeholder-img card-img-top"
-                  alt="Girl in a jacket"
-                  width="100%"
-                />
-                <div class="card-body text-center">
-                  <h5 class="h5 font-weight-bold">
-                    <a
-                      >Ed Sheeran</a
-                    >
-                  </h5>
-                  <p class="mb-0">I Don't Care</p>
-
-                  <audio id="music2" preload="true">
-                    <source
-                      src="https://siasky.net/AADuF-T_DitX5Y5bONnIlr-Qbs7Nt9P5XlhT9k5z1IiaQw"
-                    />
-                  </audio>
-                  <div id="audioplayer">
-                    <i id="pButton2" class="fa fa-play pButton"></i>
-                    <div class="timeline" id="timeline2">
-                      <div class="playhead" id="playhead2"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img
-                  src="skynet-music.png"
-                  class="bd-placeholder-img card-img-top"
-                  alt="Girl in a jacket"
-                  width="100%"
-                />
-                <div class="card-body text-center">
-                  <h5 class="h5 font-weight-bold">
-                    <a
-                      >Maroon 5</a
-                    >
-                  </h5>
-                  <p class="mb-0">Girls Like You</p>
-
-                  <audio id="music3" preload="true">
-                    <source
-                      src="https://siasky.net/AADUfQjT4a7rRSsX_aGfMHq59EZJxNIavJdLp1Fn5az7Ag"
-                    />
-                  </audio>
-                  <div id="audioplayer">
-                    <i id="pButton3" class="fa fa-play pButton"></i>
-                    <div class="timeline" id="timeline3">
-                      <div class="playhead" id="playhead3"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="row" id="songlist">         
           </div>
         </div>
       </div>
@@ -305,6 +212,9 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
+    <script
+    src="dataloader.js"
+  ></script>
     <script src="main.js"></script>
   </body>
 </html>
