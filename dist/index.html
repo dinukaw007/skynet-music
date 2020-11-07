@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Skynet Music Demo</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link
+      href="font-awesome-4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Skynet Music Album Beta</h4>
+              <p class="text-muted">
+                Skynet Music Album Beta is my first Skynet application. Build
+                just to learning purpose. However form this application simply
+                you can upload and listen to music by this application all the
+                files you are uploading directly uploading to Skynet storage
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://github.com/dinukaw007/skynet-music"
+                    class="text-white"
+                    target="_blank"
+                    >Github</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a
+            class="navbar-brand d-flex align-items-center"
+          >
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              class="bi bi-music-note"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"
+              />
+              <path fill-rule="evenodd" d="M9 3v10H8V3h1z" />
+              <path
+                d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"
+              />
+            </svg>
+            <strong>Skynet Music</strong>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1>Skynet Music</h1>
+          <p class="lead text-muted">
+            You can upload your favorite music and listen those from anywhere
+            you want
+          </p>
+          <p>
+            <a
+              data-toggle="modal"
+              data-target="#exampleModal"
+              class="btn btn-primary my-2"
+              >Upload Music</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img
+                  src="skynet-music.png"
+                  class="bd-placeholder-img card-img-top"
+                  alt="Girl in a jacket"
+                  width="100%"
+                />
+                <div class="card-body text-center">
+                  <h5 class="h5 font-weight-bold">
+                    <a 
+                      >Tones And I</a
+                    >
+                  </h5>
+                  <p class="mb-0">Dance Monkey</p>
+
+                  <audio id="music1" preload="true">
+                    <source
+                      src="https://siasky.net/_BFEVGCEhKJ9Zkh8cVFB0KLn1d8Nrc8vhEkunOC8sLWSJg"
+                    />
+                  </audio>
+                  <div id="audioplayer">
+                    <i id="pButton1" class="fa fa-play pButton"></i>
+                    <div class="timeline" id="timeline1">
+                      <div class="playhead" id="playhead1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img
+                  src="skynet-music.png"
+                  class="bd-placeholder-img card-img-top"
+                  alt="Girl in a jacket"
+                  width="100%"
+                />
+                <div class="card-body text-center">
+                  <h5 class="h5 font-weight-bold">
+                    <a
+                      >Ed Sheeran</a
+                    >
+                  </h5>
+                  <p class="mb-0">I Don't Care</p>
+
+                  <audio id="music2" preload="true">
+                    <source
+                      src="https://siasky.net/AADuF-T_DitX5Y5bONnIlr-Qbs7Nt9P5XlhT9k5z1IiaQw"
+                    />
+                  </audio>
+                  <div id="audioplayer">
+                    <i id="pButton2" class="fa fa-play pButton"></i>
+                    <div class="timeline" id="timeline2">
+                      <div class="playhead" id="playhead2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img
+                  src="skynet-music.png"
+                  class="bd-placeholder-img card-img-top"
+                  alt="Girl in a jacket"
+                  width="100%"
+                />
+                <div class="card-body text-center">
+                  <h5 class="h5 font-weight-bold">
+                    <a
+                      >Maroon 5</a
+                    >
+                  </h5>
+                  <p class="mb-0">Girls Like You</p>
+
+                  <audio id="music3" preload="true">
+                    <source
+                      src="https://siasky.net/AADUfQjT4a7rRSsX_aGfMHq59EZJxNIavJdLp1Fn5az7Ag"
+                    />
+                  </audio>
+                  <div id="audioplayer">
+                    <i id="pButton3" class="fa fa-play pButton"></i>
+                    <div class="timeline" id="timeline3">
+                      <div class="playhead" id="playhead3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--Model-->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Music Uploader</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form autocomplete="off">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Song Title</label>
+                <input
+                  autocomplete="off"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="songTitel"
+                />
+                <small id="songTitel" class="form-text text-muted"
+                  >Character limit is 20</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Artist</label>
+                <input
+                  autocomplete="off"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="songTitel"
+                />
+                <small id="songTitel" class="form-text text-muted"
+                  >Character limit is 20</small
+                >
+              </div>
+              <label for="exampleFormControlFile1">Music file input</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="exampleFormControlFile1"
+              />
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  id="uplaod-progress"
+                  role="progressbar"
+                  style="width: 25%"
+                  aria-valuenow="35"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" id="uplaod-btn" class="btn btn-primary">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Template-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
