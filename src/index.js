@@ -2,7 +2,6 @@ import refernece from './refernece';
 import * as dataloader from './dataloader';
 import * as skynet from './sky';
 
-
 $( document ).ready(function() {
 	$(".progress").addClass('invisible');
 	var template = $('#hidden-template').html();	

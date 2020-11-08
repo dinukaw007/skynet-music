@@ -1,0 +1,37 @@
+{
+	"name": "Skynet Music",
+	"short_name": "Skynet Music",
+	"icons":[
+		{
+			"src":"images/skynet_music_logo_sm.png",
+			"type": "image/png",
+			"sizes":"144x144"
+		},
+		{
+			"src":"images/skynet_music_logo_sm.png",
+			"type": "image/png",
+			"sizes":"144x144"
+		},
+		{
+			"src":"images/skynet_music512.png",
+			"type": "image/png",
+			"sizes":"512x512"
+		},{
+			"src":"images/skynet_music192.png",
+			"type": "image/png",
+			"sizes":"192x192"
+		},{
+			"src": "images/maskable_icon.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		  }	
+	],
+	"theme_color": "#343a40",
+	"background_color": "#2196f3",
+	"display": "standalone",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "/hns/naywmith/"
+  }
+  

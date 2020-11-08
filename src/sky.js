@@ -1,6 +1,8 @@
 import { SkynetClient, keyPairFromSeed } from "skynet-js";
 
-const client = new SkynetClient();
+//const client = new SkynetClient();
+/*run the code locally */
+const client = new SkynetClient("https://siasky.net");
 const { publicKey, privateKey } = keyPairFromSeed("SY@m78HT9+ZFAfTbQY/Z}}2FNa;v&b]J");
 const dataKey = "skymusic.json";
 export async function uploadExample(file) {
