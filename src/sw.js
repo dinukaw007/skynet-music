@@ -5,8 +5,8 @@ const RUNTIME = 'runtime';
 
 var urlsToCache = [ 
   '/',
-  '/dist/', 
-  //'/hns/naywmith/',
+  //'/dist/', 
+  '/hns/naywmith/',
   './index.html',
   './main.css',
   './main.js',
