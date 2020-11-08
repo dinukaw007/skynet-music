@@ -4,7 +4,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="#343a40" />
-    <meta name="Description" content="Skynet Music Album Beta is my first Skynet application. Build just for learning purpose. However form this application simply you can upload and listen to music by this application all the files you are uploading directly uploading to Skynet storage">
+    <meta
+      name="Description"
+      content="Skynet Music Album Beta is my first Skynet application. Build
+      just for learning purpose. However form this application simply
+      you can upload music and listen to those. All the files you are
+      uploading directly uploading to SkyDB (A Mutable Database for
+      the Decentralized Web)"
+    />
     <link rel="apple-touch-icon" href="./images/maskable_icon.png" />
     <title>Skynet Music Demo</title>
 
@@ -30,11 +37,11 @@
       if ('serviceWorker' in navigator) {
         // console.log('CLIENT: service worker registration in progress.');
         navigator.serviceWorker.register('sw.js').then(
-          function(registration)  {
+          function (registration) {
             // console.log('Registration successful, scope is:', registration.scope);
           },
-          function(error) {
-           // console.log('CLIENT: service worker registration failure.');
+          function (error) {
+            // console.log('CLIENT: service worker registration failure.');
           }
         );
       } else {
@@ -52,8 +59,9 @@
               <p class="text-muted">
                 Skynet Music Album Beta is my first Skynet application. Build
                 just for learning purpose. However form this application simply
-                you can upload and listen to music by this application all the
-                files you are uploading directly uploading to Skynet storage
+                you can upload music and listen to those. All the files you are
+                uploading directly uploading to SkyDB (A Mutable Database for
+                the Decentralized Web)
               </p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
@@ -108,7 +116,6 @@
         </div>
       </div>
     </header>
-
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
@@ -124,6 +131,7 @@
               class="btn btn-primary my-2"
               >Upload Music</a
             >
+            <!-- <a id="alertBtn" class="btn btn-primary my-2">Alert Test</a> -->
           </p>
         </div>
       </section>
@@ -135,11 +143,12 @@
       </div>
     </main>
 
-    <!--Model-->
+    <!--Model Start-->
     <div
       class="modal fade"
       id="exampleModal"
       tabindex="-1"
+      data-backdrop="static"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
@@ -156,40 +165,45 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <form autocomplete="off">
+
+          <form id="uploadForm" class="was-validated" autocomplete="off" data-toggle="validator">
+            <div class="modal-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Song Title</label>
                 <input
                   autocomplete="off"
-                  type="email"
+                  type="text"
+                  axlength="20"
                   class="form-control"
                   id="txtSongTitle"
                   aria-describedby="songTitel"
+                  required
                 />
                 <small id="songTitel" class="form-text text-muted"
                   >Character limit is 20</small
                 >
               </div>
-
               <div class="form-group">
                 <label for="exampleInputEmail1">Artist</label>
                 <input
                   autocomplete="off"
-                  type="email"
+                  type="text"
                   class="form-control"
                   id="txtArtist"
+                  axlength="20"
                   aria-describedby="artistText"
+                  required
                 />
                 <small id="artistText" class="form-text text-muted"
                   >Character limit is 20</small
                 >
               </div>
               <label for="exampleFormControlFile1">Music file input</label>
-              <input type="file" class="form-control-file" id="mediaFile" />
+              <input type="file" class="form-control-file" id="mediaFile" required />
+              <p id="fileUpladinvalidfeedback" class="text-danger"></p>
               <div class="progress">
                 <div
-                  class="progress-bar"
+                  class="progress-bar progress-bar-striped progress-bar-animated"
                   id="uplaod-progress"
                   role="progressbar"
                   style="width: 25%"
@@ -198,42 +212,56 @@
                   aria-valuemax="100"
                 ></div>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" id="uplaod-btn" class="btn btn-primary">
-              Upload
-            </button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" id="uplaod-btn" class="btn btn-primary">
+                Upload
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+    <!--Model End-->
 
-    <!--Template-->
+    <!--Toast Start-->
+    <div
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      data-delay="2000"
+      style="position: absolute; top: 1rem; right: 1rem"
+    >
+      <div class="toast-header">
+        <strong class="mr-auto">Skynet Music Notification</strong>
+        <!-- <small>11 mins ago</small> -->
+        <button
+          type="button"
+          class="ml-2 mb-1 close"
+          data-dismiss="toast"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body"></div>
+    </div>
+    <!--Toast End-->
 
     <script src="https://use.fontawesome.com/3cce9179cf.js"></script>
-    <!-- <script
-      src="./jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script> -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
-    <!-- <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
       integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
