@@ -31,10 +31,10 @@
         // console.log('CLIENT: service worker registration in progress.');
         navigator.serviceWorker.register('sw.js').then(
           function(registration)  {
-            console.log('Registration successful, scope is:', registration.scope);
+            // console.log('Registration successful, scope is:', registration.scope);
           },
           function(error) {
-           console.log('CLIENT: service worker registration failure.');
+           // console.log('CLIENT: service worker registration failure.');
           }
         );
       } else {
