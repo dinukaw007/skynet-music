@@ -12,14 +12,14 @@ function addItemsToDisplayMusic(items, inc) {
             src=${songItem.image}
             class="bd-placeholder-img card-img-top"
             alt="Girl in a jacket"
-            width="100%"
+            height="225" width="100%"            
           />
           <div class="card-body text-center">
-            <h5 class="h5 font-weight-bold">
-              <a 
-                >${songItem.artist}</a
+            <p class="h5 font-weight-bold">
+              <span 
+                >${songItem.artist}</span
               >
-            </h5>
+            </p>
             <p class="mb-0">${songItem.title}</p>
 
             <audio id=${'music' + incIdVal} preload="true">
