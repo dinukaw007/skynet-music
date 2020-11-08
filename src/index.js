@@ -61,7 +61,7 @@ $('#uplaod-btn').click(function () {
       // showToast('You can upload mp3 files only');
       updateProgressBar(0);
       $('#fileUpladinvalidfeedback').empty();
-      $('#fileUpladinvalidfeedback').append('You can upload mp3 files only');
+      $('#fileUpladinvalidfeedback').append('You can upload .mp3 and .flac files only');
     }
   } else {
     showToast('Please check the from validation');
@@ -99,7 +99,7 @@ function stringIsEmpty(str) {
 }
 
 function ismp3(icon) {
-  const ext = ['.mp3'];
+  const ext = ['.mp3','.flac'];
   return ext.some((el) => icon.endsWith(el));
 }
 
@@ -121,6 +121,6 @@ $('input[type=file]').on('change', function () {
 	$('#fileUpladinvalidfeedback').empty();
   } else {
     $('#fileUpladinvalidfeedback').empty();
-    $('#fileUpladinvalidfeedback').append('You can upload mp3 files only');
+    $('#fileUpladinvalidfeedback').append('You can upload .mp3 and .flac files only');
   }
 });
