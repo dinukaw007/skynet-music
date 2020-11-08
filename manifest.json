@@ -31,7 +31,7 @@
 	"background_color": "#2196f3",
 	"display": "standalone",
 	"orientation": "portrait",
-	"scope": "/",
+	"scope": "/hns/naywmith/",
 	"start_url": "/hns/naywmith/"
   }
   

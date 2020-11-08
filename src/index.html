@@ -30,11 +30,11 @@
       if ('serviceWorker' in navigator) {
         // console.log('CLIENT: service worker registration in progress.');
         navigator.serviceWorker.register('sw.js').then(
-          function () {
-            // console.log('CLIENT: service worker registration complete.');
+          function(registration)  {
+            console.log('Registration successful, scope is:', registration.scope);
           },
-          function () {
-            // console.log('CLIENT: service worker registration failure.');
+          function(error) {
+           console.log('CLIENT: service worker registration failure.');
           }
         );
       } else {
