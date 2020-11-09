@@ -104,3 +104,11 @@ p.break {
   margin-top: -3px;
   background: black;
   cursor: pointer; }
+
+
+.navbar-toggler {
+    cursor: pointer;
+}
+.navbar-toggler-icon {
+  cursor: pointer;
+}

@@ -10,7 +10,7 @@ function addItemsToDisplayMusic(items, inc) {
         <div class="card mb-4 shadow-sm">
           <img
             src=${songItem.image}
-            class="bd-placeholder-img card-img-top"
+            class="bd-placeholder-img card-img-top d-none d-sm-block d-md-block"
             alt="Girl in a jacket"
             height="225" width="100%"            
           />

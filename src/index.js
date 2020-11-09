@@ -72,10 +72,37 @@ $('#uplaod-btn').click(function () {
 //   showToast('Append Message');
 // });
 
-function showToast(message) {
+function showToast(message) {  
+  $('#toastContainer').append(
+    ` <div
+    class="toast"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    data-delay="2000"
+    style="position: absolute; top: 1rem; right: 1rem"
+  >
+    <div class="toast-header">
+      <strong class="mr-auto">Skynet Music Notification</strong>
+      <button
+        type="button"
+        class="ml-2 mb-1 close"
+        data-dismiss="toast"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body"></div>
+  </div>`
+  );
   $('.toast-body').empty();
   $('.toast-body').append('<span>' + message + '<span>');
   $('.toast').toast('show');
+
+  setTimeout(function() {
+    $('#toastContainer').empty();
+}, 3000);
 }
 
 function updateProgressBar(valeur) {
