@@ -1,5 +1,8 @@
 import * as skynet from './sky';
+import MusicQueue from './music';
 
+let previosueMusic=null;
+let previosueButton=null;
 let dataset = [];
 
 function addItemsToDisplayMusic(items, inc) {
@@ -36,6 +39,7 @@ function addItemsToDisplayMusic(items, inc) {
           </div>
         </div>
       </div>`);
+
     var music = document.getElementById(`${'music' + incIdVal}`); // id for audio element
     var duration = music.duration; // Duration of audio clip, calculated here for embedding purposes
     var pButton = document.getElementById(`${'pButton' + incIdVal}`); // play button
@@ -121,8 +125,19 @@ function addItemsToDisplayMusic(items, inc) {
     //Play and Pause
     function play() {
       // start music
-      if (music.paused) {
+
+      if(previosueMusic !== music && previosueMusic !== null){
+        previosueMusic.pause();
+        previosueButton.className = 'pButton';
+        previosueButton.className = 'pButton fa fa-play';
+      }else {
+      
+      }
+
+      if (music.paused) {        
         music.play();
+        previosueMusic = music;
+        previosueButton= pButton;
         // remove play, add pause
         pButton.className = 'pButton';
         pButton.className = 'pButton fa fa-pause';
@@ -152,10 +167,6 @@ function addItemsToDisplayMusic(items, inc) {
   });
 }
 
-// export function displayMusic() {
-//   const items = getItems();
-//   addItemsToDisplayMusic(items, 0);
-// }
 
 export function getItems() {
   return dataset;
@@ -178,5 +189,13 @@ export function getskyNetData() {
 
 export function setItems(item) {
   dataset.push(...item);
-  // addItemsToDisplayMusic(item, dataset.length + 1);
 }
+
+export function getskyMusicQueue() {
+ let musicQueue = new MusicQueue();
+ dataset.forEach(item=>{
+  musicQueue.enqueue(item);
+ })
+ return musicQueue;
+}
+

@@ -11,7 +11,7 @@ var urlsToCache = [
   './main.css',
   './main.js',
   'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
-  'https://use.fontawesome.com/3cce9179cf.js',
+ // 'https://use.fontawesome.com/3cce9179cf.js',
   'https://code.jquery.com/jquery-3.5.1.slim.min.js',
   //'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',
   'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js'  

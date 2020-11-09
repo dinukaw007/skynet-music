@@ -12,7 +12,6 @@ $(document).ready(function () {
 
 $('#uplaod-btn').click(function () {
   $('.progress').removeClass('invisible');
-
   const txtSongTitle = $('#txtSongTitle').val();
   const txtArtist = $('#txtArtist').val();
   const mediaFile = $('#mediaFile');
@@ -61,18 +60,47 @@ $('#uplaod-btn').click(function () {
       // showToast('You can upload mp3 files only');
       updateProgressBar(0);
       $('#fileUpladinvalidfeedback').empty();
-      $('#fileUpladinvalidfeedback').append('You can upload .mp3 and .flac files only');
+      $('#fileUpladinvalidfeedback').append(
+        'You can upload .mp3 and .flac files only'
+      );
     }
   } else {
     showToast('Please check the from validation');
   }
 });
 
-// $('#alertBtn').click(function () {
-//   showToast('Append Message');
-// });
+let audio = new Audio();
+let musicList = [];
 
-function showToast(message) {  
+audio.addEventListener('ended', function () {
+  audio.pause();
+  audio.src = musicList.dequeue().url;
+  audio.load();
+  audio.play();
+});
+
+$('#stopAllBtn').click(function (event) {
+  audio.pause();
+  musicList = dataloader.getskyMusicQueue();
+  $('#playAllBtn').text('Play All');
+});
+
+$('#playAllBtn').click(function (event) {
+  audio.pause();
+  if (!event.detail || event.detail == 1) {
+    if (musicList.length === 0 || musicList.elements.length === 0) {
+      $('#playAllBtn').text('Play All');
+      musicList = dataloader.getskyMusicQueue();
+    }
+    $('#playAllBtn').text('Play Next');
+    const url = musicList.dequeue().url;
+    audio.src = url;
+    audio.load();
+    audio.play();
+  }
+});
+
+function showToast(message) {
   $('#toastContainer').append(
     ` <div
     class="toast"
@@ -100,9 +128,9 @@ function showToast(message) {
   $('.toast-body').append('<span>' + message + '<span>');
   $('.toast').toast('show');
 
-  setTimeout(function() {
+  setTimeout(function () {
     $('#toastContainer').empty();
-}, 3000);
+  }, 3000);
 }
 
 function updateProgressBar(valeur) {
@@ -126,7 +154,7 @@ function stringIsEmpty(str) {
 }
 
 function ismp3(icon) {
-  const ext = ['.mp3','.flac'];
+  const ext = ['.mp3', '.flac'];
   return ext.some((el) => icon.endsWith(el));
 }
 
@@ -145,9 +173,11 @@ $('input[type=file]').on('change', function () {
   const mediaFile = $('#mediaFile');
 
   if (ismp3(mediaFile[0].files[0].name)) {
-	$('#fileUpladinvalidfeedback').empty();
+    $('#fileUpladinvalidfeedback').empty();
   } else {
     $('#fileUpladinvalidfeedback').empty();
-    $('#fileUpladinvalidfeedback').append('You can upload .mp3 and .flac files only');
+    $('#fileUpladinvalidfeedback').append(
+      'You can upload .mp3 and .flac files only'
+    );
   }
 });

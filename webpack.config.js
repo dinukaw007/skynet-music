@@ -12,7 +12,7 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
-            options: { minimze: false },
+            options: { minimze: true },
           },
         ],
       },
@@ -44,7 +44,7 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
